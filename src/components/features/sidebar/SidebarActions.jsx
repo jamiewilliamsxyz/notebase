@@ -6,7 +6,7 @@ import { IconButton } from "../../ui/IconButton";
 
 export const SidebarActions = () => {
   return (
-    <div className="bg-base-100 flex justify-between p-4">
+    <div className="bg-base-100 flex justify-between p-3">
       <IconButton>
         <FilePlus className="w-8 h-8" />
       </IconButton>
