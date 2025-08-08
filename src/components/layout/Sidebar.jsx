@@ -4,7 +4,7 @@ import { NoteMenu } from "../features/sidebar/NoteMenu";
 
 export const Sidebar = () => {
   return (
-    <div className="bg-base-200 w-[18rem] min-w-[18rem] h-screen flex flex-col">
+    <div className="bg-base-200 w-[20rem] min-w-[20rem] h-screen flex flex-col">
       <SidebarActions />
       <div>
         <SearchBar />
