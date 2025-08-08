@@ -6,7 +6,7 @@ export const Sidebar = () => {
   return (
     <div className="bg-base-200 w-[20rem] min-w-[20rem] h-screen flex flex-col">
       <SidebarActions />
-      <div>
+      <div className="flex flex-col gap-5 p-5">
         <SearchBar />
         <NoteMenu />
       </div>

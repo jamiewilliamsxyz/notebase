@@ -2,7 +2,7 @@ import { NoteItem } from "./NoteItem";
 
 export const NoteMenu = () => {
   return (
-    <ul className="menu">
+    <ul className="menu text-base">
       <NoteItem />
     </ul>
   );
