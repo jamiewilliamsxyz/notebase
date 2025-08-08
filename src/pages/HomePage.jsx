@@ -1,7 +1,11 @@
+import { NoteEditor } from "../components/features/notes/NoteEditor";
+
 export const HomePage = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className="flex flex-col w-full min-h-full bg-base-300">
+      {/* Toolbar */}
+      <NoteEditor />
+      {/* Bottom bar */}
     </div>
   );
 };
