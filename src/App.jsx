@@ -7,10 +7,12 @@ export const App = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <main className="ml-[20rem] w-full">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
     </div>
   );
 };
