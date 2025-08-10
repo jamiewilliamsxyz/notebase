@@ -11,7 +11,7 @@ export const App = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <main className="ml-[20rem] w-full">
+      <main className={`${!isExpanded ? `ml-[20rem]` : ``} w-full`.trim()}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />
