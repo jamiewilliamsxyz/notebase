@@ -10,7 +10,7 @@ export const NoteMenu = () => {
       {notes
         .toSorted((a, b) => a.title.localeCompare(b.title))
         .map((note) => {
-          return <NoteItem key={note.id} title={note.title} />;
+          return <NoteItem key={note.id} id={note.id} title={note.title} />;
         })}
     </ul>
   );

@@ -5,10 +5,14 @@ export const WorkspaceContext = createContext();
 
 export const WorkspaceContextProvider = ({ children }) => {
   const [notes, setNotes] = useState([
-    { id: 1, title: "Untitled", content: "Untitled Content Test" },
-    { id: 2, title: "Untitled 1", content: "Untitled 1 Content Test" },
-    { id: 3, title: "Untitled 2", content: "Untitled 2 Content Test" },
+    { id: 1, title: "Welcome To Notebase", content: "Short guide" },
   ]);
+
+  const [noteOpen, setNoteOpen] = useState({
+    id: 1,
+    title: "Welcome To Notebase",
+    content: "Short guide",
+  });
 
   const createNote = () => {
     setNotes((prev) => [
@@ -17,8 +21,15 @@ export const WorkspaceContextProvider = ({ children }) => {
     ]);
   };
 
+  const openNote = (id) => {
+    const matchingNote = notes.filter((note) => note.id === id);
+    setNoteOpen(...matchingNote);
+  };
+
   return (
-    <WorkspaceContext.Provider value={{ notes, createNote }}>
+    <WorkspaceContext.Provider
+      value={{ notes, createNote, openNote, noteOpen }}
+    >
       {children}
     </WorkspaceContext.Provider>
   );
