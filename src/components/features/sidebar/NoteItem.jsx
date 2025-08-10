@@ -1,7 +1,7 @@
-export const NoteItem = () => {
+export const NoteItem = ({ title }) => {
   return (
     <li>
-      <a>Note Item</a>
+      <a>{title}</a>
     </li>
   );
 };
