@@ -1,5 +1,7 @@
-export const IconButton = ({ children }) => {
+export const IconButton = ({ children, ...props }) => {
   return (
-    <button className="btn btn-lg btn-square btn-ghost">{children}</button>
+    <button {...props} className="btn btn-lg btn-square btn-ghost">
+      {children}
+    </button>
   );
 };
