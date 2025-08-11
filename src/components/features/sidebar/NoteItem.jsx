@@ -18,7 +18,9 @@ export const NoteItem = ({ id, title }) => {
     <li>
       <a
         onClick={() => openNote(id)}
-        className={`${isSelected ? "bg-primary" : "".trim()} mb-1.5`}
+        className={`${
+          isSelected ? "bg-primary" : ""
+        } mb-1.5 transition-colors duration-300 ease-in-out`}
       >
         {title}
       </a>
