@@ -15,9 +15,11 @@ export const NoteEditor = () => {
     setTitle(noteOpen.title);
     setContent(noteOpen.content);
 
-    // If note opened is last in notes array then focus/select title
     // Slice creates a new array with an object in, [0] gets the object inside of it at index 0
-    if (noteOpen === notes.slice(-1)[0]) {
+    const lastNote = notes.slice(-1)[0];
+
+    // If note opened is last in notes array then focus/select title
+    if (noteOpen === lastNote && lastNote.title === "Untitled") {
       titleInputRef.current.focus();
       titleInputRef.current.select();
     }
