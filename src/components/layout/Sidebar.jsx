@@ -16,7 +16,7 @@ export const Sidebar = () => {
       {isExpanded ? (
         <div className="fixed bg-base-200 w-[26rem] h-screen flex flex-col">
           <SidebarToolbar />
-          <div className="flex flex-col gap-5 p-5">
+          <div className="flex flex-col gap-5 p-5 flex-1 min-h-0">
             <SearchBar />
             <NoteMenu />
           </div>
