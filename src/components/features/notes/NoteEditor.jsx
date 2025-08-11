@@ -10,6 +10,7 @@ export const NoteEditor = () => {
   const [content, setContent] = useState("");
 
   const titleInputRef = useRef(null);
+  const contentTextareaRef = useRef(null);
 
   useEffect(() => {
     setTitle(noteOpen.title);
@@ -30,9 +31,17 @@ export const NoteEditor = () => {
       <input
         type="text"
         value={title}
+        ref={titleInputRef}
+        // Pressing enter while on the title input will put the user onto the notes main content (textarea)
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            // e.preventDefault() needed to not add a new line when focused on the textarea
+            e.preventDefault();
+            contentTextareaRef.current.focus();
+          }
+        }}
         onChange={(e) => setTitle(e.target.value)}
         className="input input-ghost input-xl w-full h-32 p-10 text-5xl font-semibold focus:bg-transparent focus:outline-none"
-        ref={titleInputRef}
       />
       <textarea
         value={content}
@@ -41,6 +50,7 @@ export const NoteEditor = () => {
           e.target.style.height = "auto";
           e.target.style.height = e.target.scrollHeight + "px";
         }}
+        ref={contentTextareaRef}
         placeholder="Start typing here..."
         className="textarea textarea-xl textarea-ghost resize-none overflow-hidden w-full leading-relaxed p-10 pt-5 focus:bg-transparent focus:outline-none min-h-[calc(100vh - 268px)]"
       />
