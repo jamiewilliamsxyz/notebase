@@ -5,11 +5,11 @@ export const WorkspaceContext = createContext();
 
 export const WorkspaceContextProvider = ({ children }) => {
   const [notes, setNotes] = useState([
-    { id: 1, title: "Welcome To Notebase", content: "Short guide" },
+    { id: "1", title: "Welcome To Notebase", content: "Short guide" },
   ]);
 
   const [noteOpen, setNoteOpen] = useState({
-    id: 1,
+    id: "1",
     title: "Welcome To Notebase",
     content: "Short guide",
   });
