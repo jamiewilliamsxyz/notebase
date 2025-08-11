@@ -6,13 +6,15 @@ import { NoteMenu } from "../features/sidebar/NoteMenu";
 import { IconButton } from "../ui/IconButton";
 import { PanelLeftOpen } from "lucide-react";
 
+// https://daisyui.com/components/collapse/
+
 export const Sidebar = () => {
   const { isExpanded, toggleSidebar } = useContext(LayoutContext);
 
   return (
     <>
       {isExpanded ? (
-        <div className="fixed bg-base-200 w-[20rem] h-screen flex flex-col">
+        <div className="fixed bg-base-200 w-[26rem] h-screen flex flex-col">
           <SidebarToolbar />
           <div className="flex flex-col gap-5 p-5">
             <SearchBar />
