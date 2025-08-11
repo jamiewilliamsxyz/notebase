@@ -15,10 +15,11 @@ export const WorkspaceContextProvider = ({ children }) => {
   });
 
   const createNote = () => {
-    setNotes((prev) => [
-      ...prev,
-      { id: uuidv4(), title: "Untitled", content: "" },
-    ]);
+    const newNote = { id: uuidv4(), title: "Untitled", content: "" };
+
+    setNotes((prev) => [...prev, newNote]);
+
+    setNoteOpen(newNote);
   };
 
   const openNote = (id) => {
