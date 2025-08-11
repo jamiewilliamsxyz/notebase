@@ -1,6 +1,6 @@
 export const SearchBar = () => {
   return (
-    <label className="input input-lg focus-within:outline-none">
+    <label className="input input-lg focus-within:outline-none w-full">
       <svg
         className="h-[1em] opacity-50"
         xmlns="http://www.w3.org/2000/svg"
