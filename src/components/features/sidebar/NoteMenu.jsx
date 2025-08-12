@@ -13,9 +13,15 @@ export const NoteMenu = () => {
 
   return (
     <ul className="menu menu-lg bg-base-200 rounded-box w-full flex-1 min-h-0 overflow-y-auto p-0 flex-nowrap rounded-none">
-      {filteredNotes.map((note) => {
-        return <NoteItem key={note.id} id={note.id} title={note.title} />;
-      })}
+      {filteredNotes.length > 0 ? (
+        filteredNotes.map((note) => {
+          return <NoteItem key={note.id} id={note.id} title={note.title} />;
+        })
+      ) : (
+        <li className="opacity-50 self-center mt-2 text-lg">
+          No matches found
+        </li>
+      )}
     </ul>
   );
 };
