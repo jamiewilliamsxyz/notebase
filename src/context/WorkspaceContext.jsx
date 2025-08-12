@@ -14,6 +14,8 @@ export const WorkspaceContextProvider = ({ children }) => {
     content: "Short guide",
   });
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const createNote = () => {
     const newNote = { id: uuidv4(), title: "Untitled", content: "" };
 
@@ -29,7 +31,14 @@ export const WorkspaceContextProvider = ({ children }) => {
 
   return (
     <WorkspaceContext.Provider
-      value={{ notes, createNote, openNote, noteOpen }}
+      value={{
+        notes,
+        createNote,
+        openNote,
+        noteOpen,
+        searchQuery,
+        setSearchQuery,
+      }}
     >
       {children}
     </WorkspaceContext.Provider>

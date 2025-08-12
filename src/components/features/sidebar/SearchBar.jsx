@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { WorkspaceContext } from "../../../context/WorkspaceContext";
+
 export const SearchBar = () => {
+  const { searchQuery, setSearchQuery } = useContext(WorkspaceContext);
+
   return (
     <label className="input input-lg focus-within:outline-none w-full min-h-12">
       <svg
@@ -19,6 +24,10 @@ export const SearchBar = () => {
       </svg>
       <input
         type="search"
+        value={searchQuery}
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
+        }}
         placeholder="Search"
         className="focus:outline-0 focus:border-0"
       />
