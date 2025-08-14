@@ -5,7 +5,7 @@ export const EditorModeToggle = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div
-      className={`fixed top-2 right-2 w-fit h-fit p-2 ${
+      className={`fixed top-2 right-2.5 w-fit h-fit p-2 ${
         theme === "dark" ? "" : "text-base-300"
       }`}
     >
