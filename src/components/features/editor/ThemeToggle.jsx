@@ -1,0 +1,17 @@
+import { useContext } from "react";
+import { Moon, Sun } from "lucide-react";
+import { ThemeContext } from "../../../context/ThemeContext";
+
+export const ThemeToggle = () => {
+  const { toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <div className="fixed bottom-2 right-2 w-fit h-fit p-2">
+      <label className="swap swap-rotate">
+        <input type="checkbox" onChange={toggleTheme} />
+        <Moon className="swap-on text-base-300 w-6 h-6" />
+        <Sun className="swap-off text-white w-6 h-6" />
+      </label>
+    </div>
+  );
+};
