@@ -8,13 +8,13 @@ export const WorkspaceContextProvider = ({ children }) => {
     { id: "1", title: "Welcome To Notebase", content: "Short guide" },
   ]);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [noteOpen, setNoteOpen] = useState({
     id: "1",
     title: "Welcome To Notebase",
     content: "Short guide",
   });
-
-  const [searchQuery, setSearchQuery] = useState("");
 
   const createNote = () => {
     const newNote = { id: uuidv4(), title: "Untitled", content: "" };
