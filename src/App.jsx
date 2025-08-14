@@ -11,7 +11,11 @@ export const App = () => {
   return (
     <div className="flex bg-base-300">
       <Sidebar />
-      <main className={`${isExpanded ? `ml-[20rem]` : `ml-[1rem]`} w-full`}>
+      <main
+        className={`${
+          isExpanded ? `ml-[20rem]` : `ml-[1rem]`
+        } w-full transition-all duration-300 ease-in-out`}
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />
