@@ -2,12 +2,15 @@ import { useContext, useState, useEffect } from "react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { ThemeToggle } from "./ThemeToggle";
+import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
   const { noteOpen } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
 
   const [content, setContent] = useState("");
+
+  const [editorMode, setEditorMode] = useState("edit");
 
   useEffect(() => {
     setContent(noteOpen.content);
@@ -19,6 +22,7 @@ export const MarkdownEditor = () => {
         theme === "dark" ? "bg-base-300 text-white" : "bg-white text-base-300"
       }`}
     >
+      <EditorModeToggle />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
