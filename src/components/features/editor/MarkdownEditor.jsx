@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { EditorThemeToggle } from "./EditorThemeToggle";
 
-export const NoteEditor = () => {
+export const MarkdownEditor = () => {
   // https://daisyui.com/components/loading/
 
   const { noteOpen } = useContext(WorkspaceContext);
