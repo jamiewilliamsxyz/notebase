@@ -18,9 +18,7 @@ export const NoteMenu = () => {
           return <NoteItem key={note.id} id={note.id} title={note.title} />;
         })
       ) : (
-        <li className="opacity-50 self-center mt-2 text-lg">
-          No matches found
-        </li>
+        <li className="opacity-50 self-center mt-1">No matches found</li>
       )}
     </ul>
   );

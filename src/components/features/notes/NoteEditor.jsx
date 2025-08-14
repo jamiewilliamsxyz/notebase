@@ -41,7 +41,7 @@ export const NoteEditor = () => {
           }
         }}
         onChange={(e) => setTitle(e.target.value)}
-        className="input input-ghost input-xl w-full h-32 p-10 text-5xl font-semibold focus:bg-transparent focus:outline-none"
+        className="input input-ghost input-lg w-full h-24 text-4xl font-semibold focus:bg-transparent focus:outline-none"
       />
       <textarea
         value={content}
@@ -52,7 +52,7 @@ export const NoteEditor = () => {
         }}
         ref={contentTextareaRef}
         placeholder="Start typing here..."
-        className="textarea textarea-xl textarea-ghost resize-none overflow-hidden w-full leading-relaxed p-10 pt-5 focus:bg-transparent focus:outline-none min-h-[calc(100vh - 268px)]"
+        className="textarea text-base textarea-ghost resize-none overflow-hidden w-full leading-relaxed focus:bg-transparent focus:outline-none "
       />
     </div>
   );

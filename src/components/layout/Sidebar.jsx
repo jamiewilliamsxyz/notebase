@@ -14,17 +14,17 @@ export const Sidebar = () => {
   return (
     <>
       {isExpanded ? (
-        <div className="fixed bg-base-200 w-[26rem] h-screen flex flex-col">
+        <div className="fixed bg-base-200 w-[20rem] h-screen flex flex-col">
           <SidebarToolbar />
-          <div className="flex flex-col gap-5 p-5 flex-1 min-h-0">
+          <div className="flex flex-col gap-3 p-3 flex-1 min-h-0">
             <SearchBar />
             <NoteMenu />
           </div>
         </div>
       ) : (
-        <div className="fixed p-3 flex flex-col">
+        <div className="fixed p-2 flex flex-col">
           <IconButton onClick={toggleSidebar}>
-            <PanelLeftOpen className="w-8 h-8" />
+            <PanelLeftOpen className="w-6 h-6" />
           </IconButton>
         </div>
       )}

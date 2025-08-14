@@ -11,12 +11,12 @@ export const SidebarToolbar = () => {
   const { createNote } = useContext(WorkspaceContext);
 
   return (
-    <div className="bg-base-100 flex justify-between p-3">
+    <div className="bg-base-100 flex justify-between p-2">
       <IconButton onClick={createNote}>
-        <FilePlus className="w-8 h-8" />
+        <FilePlus className="w-6 h-6" />
       </IconButton>
       <IconButton onClick={toggleSidebar}>
-        <PanelLeftClose className="w-8 h-8" />
+        <PanelLeftClose className="w-6 h-6" />
       </IconButton>
     </div>
   );

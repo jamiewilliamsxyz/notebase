@@ -21,11 +21,11 @@ export const NoteItem = ({ id, title }) => {
         onClick={() => openNote(id)}
         className={`${
           isSelected ? "bg-primary" : ""
-        } mb-1.5 transition-colors duration-300 ease-in-out dropdown dropdown-right flex flex-row justify-between`}
+        } text-sm mb-1.5 px-2.5 py-1.5 transition-colors duration-300 ease-in-out dropdown dropdown-right flex flex-row justify-between`}
       >
         {title}
         <div tabIndex={0} role="button">
-          <Ellipsis className="w-7 h-7" />
+          <Ellipsis className="w-4 h-4" />
         </div>
 
         <ul
