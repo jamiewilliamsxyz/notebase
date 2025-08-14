@@ -8,7 +8,7 @@ export const MarkdownEditor = () => {
   const { noteOpen } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
 
-  const [content, setContent] = useState("");
+  const [markdownContent, setMarkdownContent] = useState("");
 
   const [editorMode, setEditorMode] = useState("edit");
 
@@ -17,7 +17,7 @@ export const MarkdownEditor = () => {
   };
 
   useEffect(() => {
-    setContent(noteOpen.content);
+    setMarkdownContent(noteOpen.content);
   }, [noteOpen]);
 
   return (
@@ -30,8 +30,8 @@ export const MarkdownEditor = () => {
 
       {editorMode === "edit" ? (
         <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+          value={markdownContent}
+          onChange={(e) => setMarkdownContent(e.target.value)}
           placeholder="Start typing here..."
           className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none "
         />
