@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { LayoutContext } from "../../context/LayoutContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import { SidebarToolbar } from "../features/sidebar/SidebarToolbar";
 import { SearchBar } from "../features/sidebar/SearchBar";
 import { NoteMenu } from "../features/sidebar/NoteMenu";
-import { IconButton } from "../ui/IconButton";
 import { PanelLeftOpen } from "lucide-react";
 
 export const Sidebar = () => {
   const { isExpanded, toggleSidebar } = useContext(LayoutContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <>
@@ -27,9 +28,18 @@ export const Sidebar = () => {
           isExpanded ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
-        <IconButton onClick={toggleSidebar}>
-          <PanelLeftOpen className="w-6 h-6" />
-        </IconButton>
+        <button
+          onClick={toggleSidebar}
+          className={`btn btn-sm btn-square btn-ghost  hover:shadow-none  ${
+            theme === "dark"
+              ? ""
+              : "hover:bg-neutral-100 hover:border-neutral-200"
+          }`}
+        >
+          <PanelLeftOpen
+            className={`w-6 h-6 ${theme === "dark" ? "" : "text-base-300"}`}
+          />
+        </button>
       </div>
     </>
   );

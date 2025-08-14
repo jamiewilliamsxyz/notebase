@@ -13,7 +13,7 @@ export const App = () => {
       <Sidebar />
       <main
         className={`${
-          isExpanded ? `ml-[20rem]` : `ml-[1rem]`
+          isExpanded ? `ml-[20rem]` : `ml-[0rem]`
         } w-full transition-all duration-300 ease-in-out`}
       >
         <Routes>
