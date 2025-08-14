@@ -5,9 +5,10 @@ export const EditorModeToggle = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div
-      className={`fixed top-2 right-2.5 w-fit h-fit p-2 ${
+      className={`tooltip tooltip-left fixed top-2 right-2.5 w-fit h-fit p-2 ${
         theme === "dark" ? "" : "text-base-300"
       }`}
+      data-tip="Switch editor mode"
     >
       <label className="swap swap-rotate">
         <input type="checkbox" />
