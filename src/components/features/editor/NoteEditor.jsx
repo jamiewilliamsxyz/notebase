@@ -21,7 +21,7 @@ export const NoteEditor = () => {
         placeholder="Start typing here..."
         className="textarea text-base textarea-ghost resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:outline-none "
       />
-      <div>WORK WORK WORK</div>
+
       <EditorThemeToggle />
     </div>
   );
