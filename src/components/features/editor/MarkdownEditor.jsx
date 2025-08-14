@@ -12,6 +12,10 @@ export const MarkdownEditor = () => {
 
   const [editorMode, setEditorMode] = useState("edit");
 
+  const handleToggleEditorMode = () => {
+    setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
+  };
+
   useEffect(() => {
     setContent(noteOpen.content);
   }, [noteOpen]);
@@ -22,7 +26,7 @@ export const MarkdownEditor = () => {
         theme === "dark" ? "bg-base-300 text-white" : "bg-white text-base-300"
       }`}
     >
-      <EditorModeToggle />
+      <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
