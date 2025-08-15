@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { ThemeToggle } from "./ThemeToggle";
@@ -10,12 +11,10 @@ export const MarkdownEditor = () => {
   const { theme } = useContext(ThemeContext);
 
   const [markdownContent, setMarkdownContent] = useState("");
-
   const [editorMode, setEditorMode] = useState("edit");
 
   const handleToggleEditorMode = () => {
     setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
-    const safeMarkdownContent = escapeHtml(markdownContent);
   };
 
   useEffect(() => {
@@ -32,13 +31,14 @@ export const MarkdownEditor = () => {
 
       {editorMode === "edit" ? (
         <textarea
+          name="editor"
           value={markdownContent}
           onChange={(e) => setMarkdownContent(e.target.value)}
           placeholder="Start typing here..."
           className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none "
         />
       ) : editorMode === "view" ? (
-        <div>HTML Content</div>
+        <ReactMarkdown>{escapeHtml(markdownContent)}</ReactMarkdown>
       ) : (
         <div className="flex items-center justify-center">
           <p className="text-error text-3xl text-semibold">
