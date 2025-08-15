@@ -30,9 +30,8 @@ export const WorkspaceContextProvider = ({ children }) => {
   };
 
   const deleteNote = (id) => {
-    const indexOfNote = notes.findIndex((note) => note.id === id);
-    notes.splice(indexOfNote, 1);
-    console.log(notes);
+    const updatedNotes = notes.filter((note) => note.id !== id);
+    setNotes(updatedNotes);
   };
 
   return (
