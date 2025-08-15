@@ -29,6 +29,11 @@ export const WorkspaceContextProvider = ({ children }) => {
     setNoteOpen(...matchingNote);
   };
 
+  const deleteNote = (id) => {
+    const indexOfNote = array.findIndex((note) => note.id === id);
+    notes.splice(indexOfNote, 1);
+  };
+
   return (
     <WorkspaceContext.Provider
       value={{
@@ -38,6 +43,7 @@ export const WorkspaceContextProvider = ({ children }) => {
         noteOpen,
         searchQuery,
         setSearchQuery,
+        deleteNote,
       }}
     >
       {children}
