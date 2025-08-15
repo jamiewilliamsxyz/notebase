@@ -38,7 +38,7 @@ export const MarkdownEditor = () => {
           className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none "
         />
       ) : editorMode === "view" ? (
-        <div className="html-content leading-relaxed">
+        <div className="html-content leading-relaxed break-all whitespace-pre-wrap w-full">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {markdownContent}
           </ReactMarkdown>
