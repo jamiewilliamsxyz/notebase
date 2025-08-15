@@ -5,7 +5,6 @@ import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { ThemeToggle } from "./ThemeToggle";
 import { EditorModeToggle } from "./EditorModeToggle";
-import { escapeHtml } from "../../../utils/escapeHtml";
 
 export const MarkdownEditor = () => {
   const { noteOpen } = useContext(WorkspaceContext);
@@ -41,7 +40,7 @@ export const MarkdownEditor = () => {
       ) : editorMode === "view" ? (
         <div className="html-content leading-relaxed">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {escapeHtml(markdownContent)}
+            {markdownContent}
           </ReactMarkdown>
         </div>
       ) : (

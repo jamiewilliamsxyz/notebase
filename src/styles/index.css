@@ -148,12 +148,10 @@
 }
 
 .html-content blockquote {
-  @apply border-primary bg-neutral;
-  border-left: 1rem;
-  padding-left: 1.5rem;
+  @apply border-l-3 border-neutral;
   margin: 1.5rem 0;
-  padding: 1rem;
-  border-radius: 0 0.25rem 0.25rem 0;
+  padding: 0.25rem;
+  padding-left: 1rem;
 }
 
 .html-content blockquote p:last-child {
