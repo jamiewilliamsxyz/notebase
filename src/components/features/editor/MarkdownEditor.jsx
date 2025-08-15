@@ -3,6 +3,7 @@ import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { ThemeToggle } from "./ThemeToggle";
 import { EditorModeToggle } from "./EditorModeToggle";
+import { escapeHtml } from "../../../utils/escapeHtml";
 
 export const MarkdownEditor = () => {
   const { noteOpen } = useContext(WorkspaceContext);
@@ -14,6 +15,7 @@ export const MarkdownEditor = () => {
 
   const handleToggleEditorMode = () => {
     setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
+    const safeMarkdownContent = escapeHtml(markdownContent);
   };
 
   useEffect(() => {
