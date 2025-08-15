@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { ThemeToggle } from "./ThemeToggle";
@@ -38,7 +39,11 @@ export const MarkdownEditor = () => {
           className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none "
         />
       ) : editorMode === "view" ? (
-        <ReactMarkdown>{escapeHtml(markdownContent)}</ReactMarkdown>
+        <div className="markdown-content leading-relaxed">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {escapeHtml(markdownContent)}
+          </ReactMarkdown>
+        </div>
       ) : (
         <div className="flex items-center justify-center">
           <p className="text-error text-3xl text-semibold">
