@@ -39,7 +39,7 @@ export const MarkdownEditor = () => {
           className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none "
         />
       ) : editorMode === "view" ? (
-        <div className="markdown-content leading-relaxed">
+        <div className="html-content leading-relaxed">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {escapeHtml(markdownContent)}
           </ReactMarkdown>
