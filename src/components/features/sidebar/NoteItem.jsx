@@ -3,7 +3,7 @@ import { PenLine, Trash } from "lucide-react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 
 export const NoteItem = ({ id, title }) => {
-  const { openNote, noteOpen } = useContext(WorkspaceContext);
+  const { openNote, noteOpen, deleteNote } = useContext(WorkspaceContext);
 
   const [isSelected, setIsSelected] = useState(false);
 
@@ -25,8 +25,18 @@ export const NoteItem = ({ id, title }) => {
       >
         {title}
         <div className="flex gap-4">
-          <PenLine className="w-4.5 h-4.5 text-base-content" />
-          <Trash className="w-4.5 h-4.5 text-base-content hover:text-error transition-colors duration-300" />
+          <button className="text-base-content cursor-pointer">
+            <PenLine className="w-4.5 h-4.5" />
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              deleteNote(id);
+            }}
+            className="text-base-content hover:text-error transition-colors duration-300 cursor-pointer"
+          >
+            <Trash className="w-4.5 h-4.5" />
+          </button>
         </div>
       </a>
     </li>
