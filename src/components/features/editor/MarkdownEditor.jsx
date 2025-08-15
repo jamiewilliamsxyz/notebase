@@ -23,7 +23,7 @@ export const MarkdownEditor = () => {
 
   return (
     <div
-      className={`min-h-screen p-10 ${
+      className={`min-h-screen py-[5%] px-[10%] ${
         theme === "dark" ? "bg-base-300 text-white" : "bg-white text-base-300"
       }`}
     >
