@@ -80,11 +80,6 @@ export const NoteItem = ({ id, title }) => {
               revertTitle();
             }
           }}
-          onBlur={() => {
-            if (isRenaming) {
-              revertTitle();
-            }
-          }}
           onChange={(e) => setDisplayTitle(e.target.value)}
           className="cursor-pointer disabled:pointer-events-none focus:cursor-text focus:border-b-2 focus:border-dashed"
         />
