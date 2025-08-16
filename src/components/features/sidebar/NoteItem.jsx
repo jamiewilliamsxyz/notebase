@@ -3,12 +3,19 @@ import { PenLine, Trash, Check, X } from "lucide-react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 
 export const NoteItem = ({ id, title }) => {
-  const { openNote, noteOpen, deleteNote, setNotes } =
-    useContext(WorkspaceContext);
+  const {
+    openNote,
+    noteOpen,
+    deleteNote,
+    setNotes,
+    renamingNoteId,
+    setRenamingNoteId,
+  } = useContext(WorkspaceContext);
 
   const [isSelected, setIsSelected] = useState(false);
   const [displayTitle, setDisplayTitle] = useState("");
-  const [isRenaming, setIsRenaming] = useState(false);
+
+  const isRenaming = renamingNoteId === id;
 
   const titleInputRef = useRef(null);
 
@@ -32,7 +39,7 @@ export const NoteItem = ({ id, title }) => {
   }, [noteOpen]);
 
   const handleRenameConfirm = () => {
-    setIsRenaming(false);
+    setRenamingNoteId(null);
     const updatedTitle = displayTitle;
 
     setNotes((prev) =>
@@ -44,7 +51,7 @@ export const NoteItem = ({ id, title }) => {
 
   const revertTitle = () => {
     setDisplayTitle(title);
-    setIsRenaming(false);
+    setRenamingNoteId(null);
   };
 
   return (
@@ -76,7 +83,7 @@ export const NoteItem = ({ id, title }) => {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setIsRenaming(true);
+                setRenamingNoteId(id);
               }}
               className="text-base-content cursor-pointer hover:opacity-60 transition-opacity duration-300 "
             >

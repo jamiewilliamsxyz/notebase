@@ -10,6 +10,8 @@ export const WorkspaceContextProvider = ({ children }) => {
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  const [renamingNoteId, setRenamingNoteId] = useState(null);
+
   const [noteOpen, setNoteOpen] = useState({
     id: "1",
     title: "Welcome To Notebase",
@@ -45,6 +47,8 @@ export const WorkspaceContextProvider = ({ children }) => {
         searchQuery,
         setSearchQuery,
         deleteNote,
+        renamingNoteId,
+        setRenamingNoteId,
       }}
     >
       {children}
