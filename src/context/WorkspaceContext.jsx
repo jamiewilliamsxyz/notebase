@@ -38,6 +38,7 @@ export const WorkspaceContextProvider = ({ children }) => {
     <WorkspaceContext.Provider
       value={{
         notes,
+        setNotes,
         createNote,
         openNote,
         noteOpen,
