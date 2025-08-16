@@ -31,6 +31,12 @@ export const NoteItem = ({ id, title }) => {
   }, [isRenaming]);
 
   useEffect(() => {
+    if (renamingNoteId === null) {
+      titleInputRef.current.blur();
+    }
+  });
+
+  useEffect(() => {
     if (noteOpen.id === id) {
       setIsSelected(true);
     } else {

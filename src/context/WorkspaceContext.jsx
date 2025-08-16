@@ -27,8 +27,10 @@ export const WorkspaceContextProvider = ({ children }) => {
   };
 
   const openNote = (id) => {
-    const matchingNote = notes.filter((note) => note.id === id);
-    setNoteOpen(...matchingNote);
+    if (renamingNoteId === null) {
+      const matchingNote = notes.filter((note) => note.id === id);
+      setNoteOpen(...matchingNote);
+    }
   };
 
   const deleteNote = (id) => {
