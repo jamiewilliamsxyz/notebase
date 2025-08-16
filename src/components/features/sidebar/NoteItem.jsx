@@ -25,7 +25,7 @@ export const NoteItem = ({ id, title }) => {
       >
         {title}
         <div className="flex gap-4">
-          <button className="text-base-content cursor-pointer">
+          <button className="text-base-content cursor-pointer hover:opacity-60 transition-opacity duration-300 ">
             <PenLine className="w-4.5 h-4.5" />
           </button>
           <button
