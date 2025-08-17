@@ -1,12 +1,17 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { get } from "../utils/get";
+import { save } from "../utils/save";
 
 export const WorkspaceContext = createContext();
 
 export const WorkspaceContextProvider = ({ children }) => {
-  const [notes, setNotes] = useState([
-    { id: "1", title: "Welcome To Notebase", content: "Short guide" },
-  ]);
+  const [notes, setNotes] = useState(() => {
+    const stored = get("notes");
+    return stored
+      ? JSON.parse(stored)
+      : [{ id: "1", title: "Welcome To Notebase", content: "Short guide" }];
+  });
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -38,7 +43,11 @@ export const WorkspaceContextProvider = ({ children }) => {
   const createNote = () => {
     const newNote = { id: uuidv4(), title: "Untitled", content: "" };
 
-    setNotes((prev) => [...prev, newNote]);
+    setNotes((prev) => {
+      const updatedNotes = [...prev, newNote];
+      save("notes", updatedNotes);
+      return updatedNotes;
+    });
 
     setNoteOpen(newNote);
   };
@@ -53,6 +62,7 @@ export const WorkspaceContextProvider = ({ children }) => {
   const deleteNote = (id) => {
     const updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
+    save("notes", updatedNotes);
   };
 
   return (
