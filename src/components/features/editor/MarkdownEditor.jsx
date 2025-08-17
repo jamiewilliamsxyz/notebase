@@ -8,7 +8,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
-  const { noteOpen } = useContext(WorkspaceContext);
+  const { noteOpen, notes, deleteNote } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
   const { isExpanded } = useContext(LayoutContext);
 
@@ -22,6 +22,11 @@ export const MarkdownEditor = () => {
   useEffect(() => {
     setMarkdownContent(noteOpen.content);
   }, [noteOpen]);
+
+  useEffect(() => {
+    if (notes.length != 0) return;
+    setMarkdownContent("You have no notes!");
+  }, [notes.length]);
 
   return (
     <div
@@ -53,11 +58,9 @@ export const MarkdownEditor = () => {
           </ReactMarkdown>
         </div>
       ) : (
-        <div className="flex items-center justify-center">
-          <p className="text-error text-3xl text-semibold">
-            Error: Invalid editor mode
-          </p>
-        </div>
+        <p className="text-error text-3xl text-semibold text-center">
+          Error: Invalid editor mode
+        </p>
       )}
 
       <ThemeToggle />
