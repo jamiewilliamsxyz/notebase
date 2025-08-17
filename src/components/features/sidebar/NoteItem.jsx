@@ -68,7 +68,7 @@ export const NoteItem = ({ id, title }) => {
         href="#"
         className={`${
           isSelected ? "bg-neutral" : ""
-        }  text-sm mb-1.5 px-2.5 py-1.5 transition-colors duration-300 ease-in-out dropdown dropdown-right flex flex-row justify-between`}
+        } text-sm mb-1.5 px-2.5 py-1.5 transition-colors duration-300 ease-in-out dropdown dropdown-right flex flex-row justify-between`}
       >
         <input
           type="text"
@@ -84,7 +84,7 @@ export const NoteItem = ({ id, title }) => {
             }
           }}
           onChange={(e) => setDisplayTitle(e.target.value)}
-          className="cursor-pointer disabled:pointer-events-none focus:cursor-text focus:border-b-2 focus:border-dashed"
+          className="overflow-ellipsis cursor-pointer disabled:pointer-events-none focus:cursor-text focus:border-b-2 focus:border-dashed"
         />
 
         {!isRenaming ? (
