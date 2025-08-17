@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 
 export const DeleteNoteModal = () => {
-  const { isModalOpen, setIsModalOpen } = useContext(WorkspaceContext);
+  const { isModalOpen, setIsModalOpen, deleteNote, noteToDeleteId } =
+    useContext(WorkspaceContext);
 
   return (
     <div
@@ -25,7 +26,15 @@ export const DeleteNoteModal = () => {
           >
             Cancel
           </button>
-          <button className="btn btn-soft btn-error">Delete</button>
+          <button
+            onClick={() => {
+              deleteNote(noteToDeleteId);
+              setIsModalOpen(false);
+            }}
+            className="btn btn-soft btn-error"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

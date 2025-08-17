@@ -12,6 +12,8 @@ export const WorkspaceContextProvider = ({ children }) => {
 
   const [renamingNoteId, setRenamingNoteId] = useState(null);
 
+  const [noteToDeleteId, setNoteToDeleteId] = useState(null);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [noteOpen, setNoteOpen] = useState({
@@ -50,6 +52,8 @@ export const WorkspaceContextProvider = ({ children }) => {
         noteOpen,
         searchQuery,
         setSearchQuery,
+        noteToDeleteId,
+        setNoteToDeleteId,
         isModalOpen,
         setIsModalOpen,
         deleteNote,
