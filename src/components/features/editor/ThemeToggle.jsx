@@ -6,7 +6,7 @@ export const ThemeToggle = () => {
   const { toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div className="fixed bottom-2 right-2.5 w-fit h-fit p-2">
+    <div className="fixed bottom-1 right-2 w-fit h-fit p-2">
       <label className="swap swap-rotate">
         <input
           aria-label="Toggle Theme"
