@@ -30,6 +30,7 @@ export const Sidebar = () => {
       >
         <button
           onClick={toggleSidebar}
+          aria-label="Open Sidebar"
           className={`btn btn-sm btn-square btn-ghost  hover:shadow-none  ${
             theme === "dark"
               ? ""
