@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { PenLine, Trash, Check, X } from "lucide-react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
+import { save } from "../../../utils/save";
 
 export const NoteItem = ({ id, title }) => {
   const {
@@ -49,11 +50,13 @@ export const NoteItem = ({ id, title }) => {
     setRenamingNoteId(null);
     const updatedTitle = displayTitle;
 
-    setNotes((prev) =>
-      prev.map((note) =>
+    setNotes((prev) => {
+      const updatedNotes = prev.map((note) =>
         note.id === id ? { ...note, title: updatedTitle } : note
-      )
-    );
+      );
+      save("notes", updatedNotes);
+      return updatedNotes;
+    });
   };
 
   const revertTitle = () => {
