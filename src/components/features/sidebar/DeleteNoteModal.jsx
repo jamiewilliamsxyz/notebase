@@ -20,7 +20,7 @@ export const DeleteNoteModal = () => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center transition-opacity duration-300 ${
+      className={`z-50 fixed inset-0 flex items-center justify-center transition-opacity duration-300 ${
         isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >

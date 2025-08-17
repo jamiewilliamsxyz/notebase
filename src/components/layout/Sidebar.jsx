@@ -13,7 +13,7 @@ export const Sidebar = () => {
   return (
     <>
       <div
-        className={`fixed bg-base-200 w-[20rem] h-screen flex flex-col transition-opacity duration-300 ease-in-out ${
+        className={`z-10 fixed bg-base-200 w-[20rem] h-screen flex flex-col transition-opacity duration-300 ease-in-out ${
           isExpanded ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >

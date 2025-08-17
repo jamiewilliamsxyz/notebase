@@ -3,12 +3,14 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
+import { LayoutContext } from "../../../context/LayoutContext";
 import { ThemeToggle } from "./ThemeToggle";
 import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
   const { noteOpen } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
+  const { isExpanded } = useContext(LayoutContext);
 
   const [markdownContent, setMarkdownContent] = useState("");
   const [editorMode, setEditorMode] = useState("edit");
@@ -23,9 +25,16 @@ export const MarkdownEditor = () => {
 
   return (
     <div
-      className={`min-h-screen py-[5%] px-[10%] ${
-        theme === "dark" ? "bg-base-300 text-white" : "bg-white text-base-300"
-      }`}
+      className={`min-h-screen py-[5%] px-[10%]
+        ${
+          theme === "dark" ? "bg-base-300 text-white" : "bg-white text-base-300"
+        }
+        ${
+          isExpanded
+            ? "opacity-25 sm:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none sm:pointer-events-auto"
+            : ""
+        }
+      `}
     >
       <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} />
 
