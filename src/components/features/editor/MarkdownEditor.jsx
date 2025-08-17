@@ -44,7 +44,7 @@ export const MarkdownEditor = () => {
           value={markdownContent}
           onChange={(e) => setMarkdownContent(e.target.value)}
           placeholder="Start typing here..."
-          className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content"
+          className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
         />
       ) : editorMode === "view" ? (
         <div className="html-content leading-relaxed break-all whitespace-pre-wrap w-full">
