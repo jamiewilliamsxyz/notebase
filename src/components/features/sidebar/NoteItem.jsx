@@ -71,6 +71,7 @@ export const NoteItem = ({ id, title }) => {
       >
         <input
           type="text"
+          maxLength="27"
           ref={titleInputRef}
           disabled={!isRenaming}
           value={displayTitle}
