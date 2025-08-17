@@ -121,7 +121,7 @@ export const NoteItem = ({ id, title }) => {
               }}
               data-tip="Confirm"
               aria-label="Confirm Rename Note"
-              className="tooltip text-success cursor-pointer"
+              className="tooltip tooltip-bottom text-success cursor-pointer"
             >
               <Check
                 className="w-4.5 h-4.5 hover:opacity-65 transition-opacity duration-300"
@@ -136,7 +136,7 @@ export const NoteItem = ({ id, title }) => {
               }}
               data-tip="Cancel"
               aria-label="Cancel Renaming Note"
-              className="tooltip text-error cursor-pointer"
+              className="tooltip tooltip-bottom text-error cursor-pointer"
             >
               <X
                 className="w-4.5 h-4.5 hover:opacity-65 transition-opacity duration-300"
