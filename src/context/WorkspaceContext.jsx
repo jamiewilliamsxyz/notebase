@@ -22,6 +22,19 @@ export const WorkspaceContextProvider = ({ children }) => {
     content: "Short guide",
   });
 
+  const updateNoteContent = (id, newContent) => {
+    setNotes((prevNotes) =>
+      prevNotes.map((note) =>
+        note.id === id ? { ...note, content: newContent } : note
+      )
+    );
+
+    setNoteOpen((prev) =>
+      prev.id === id ? { ...prev, content: newContent } : prev
+    );
+    console.log(notes);
+  };
+
   const createNote = () => {
     const newNote = { id: uuidv4(), title: "Untitled", content: "" };
 
@@ -59,6 +72,7 @@ export const WorkspaceContextProvider = ({ children }) => {
         deleteNote,
         renamingNoteId,
         setRenamingNoteId,
+        updateNoteContent,
       }}
     >
       {children}

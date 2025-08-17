@@ -8,7 +8,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
-  const { noteOpen, notes } = useContext(WorkspaceContext);
+  const { noteOpen, notes, updateNoteContent } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
   const { isExpanded } = useContext(LayoutContext);
 
@@ -48,7 +48,11 @@ export const MarkdownEditor = () => {
           <textarea
             name="editor"
             value={markdownContent}
-            onChange={(e) => setMarkdownContent(e.target.value)}
+            onChange={(e) => {
+              const newValue = e.target.value;
+              setMarkdownContent(newValue);
+              updateNoteContent(noteOpen.id, newValue);
+            }}
             placeholder="Start typing here..."
             className="h-[100%] textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
           />
