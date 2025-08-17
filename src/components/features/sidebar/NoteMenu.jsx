@@ -12,7 +12,7 @@ export const NoteMenu = () => {
     .toSorted((a, b) => a.title.localeCompare(b.title));
 
   return (
-    <ul className="menu menu-lg bg-base-200 rounded-box w-full flex-1 min-h-0 overflow-y-visible p-0 flex-nowrap rounded-none">
+    <ul className="menu menu-lg bg-base-200 rounded-box w-full flex-1 min-h-0 overflow-y-auto overflow-x-hidden p-0 flex-nowrap rounded-none">
       {filteredNotes.length > 0 ? (
         filteredNotes.map((note) => {
           return <NoteItem key={note.id} id={note.id} title={note.title} />;
