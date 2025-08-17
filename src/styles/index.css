@@ -63,18 +63,19 @@
   line-height: 1.7;
 }
 
-.html-content ul,
-.html-content ol {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-}
-
 .html-content ul {
   list-style-type: disc;
 }
 
 .html-content ol {
   list-style-type: decimal;
+}
+
+.html-content ol,
+.html-content ul {
+  white-space: normal;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .html-content li {
@@ -84,20 +85,40 @@
 
 .html-content ul ul,
 .html-content ol ol {
-  margin-top: 0.25rem;
-  margin-bottom: 0;
+  padding-left: 1.5rem;
 }
 
 .html-content input[type="checkbox"] {
+  @apply border-2 border-neutral;
   margin-right: 0.25rem;
   width: 1rem;
   height: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 2px;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.html-content input[type="checkbox"]:checked {
+  @apply border-neutral bg-neutral;
+}
+
+.html-content input[type="checkbox"]:checked::before {
+  @apply text-white;
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
 }
 
 .html-content ul.task-list,
 .html-content li.task-list-item {
   list-style: none;
-  padding-left: 0;
 }
 
 .html-content a {
