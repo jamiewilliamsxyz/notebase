@@ -94,6 +94,7 @@ export const NoteItem = ({ id, title }) => {
                 e.stopPropagation();
                 setRenamingNoteId(id);
               }}
+              aria-label="Rename Note"
               className="text-base-content cursor-pointer hover:opacity-60 transition-opacity duration-300 "
             >
               <PenLine className="w-4.5 h-4.5" />
@@ -105,6 +106,7 @@ export const NoteItem = ({ id, title }) => {
                 setNoteToDeleteId(id);
                 setIsModalOpen(true);
               }}
+              aria-label="Delete Note"
               className="text-base-content hover:text-error transition-colors duration-300 cursor-pointer"
             >
               <Trash className="w-4.5 h-4.5" />
@@ -118,6 +120,7 @@ export const NoteItem = ({ id, title }) => {
                 handleRenameConfirm();
               }}
               data-tip="Confirm"
+              aria-label="Confirm Rename Note"
               className="tooltip text-success cursor-pointer"
             >
               <Check
@@ -132,6 +135,7 @@ export const NoteItem = ({ id, title }) => {
                 revertTitle();
               }}
               data-tip="Cancel"
+              aria-label="Cancel Renaming Note"
               className="tooltip text-error cursor-pointer"
             >
               <X
