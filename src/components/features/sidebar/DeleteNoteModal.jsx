@@ -1,9 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 
 export const DeleteNoteModal = () => {
-  const { isModalOpen, setIsModalOpen, deleteNote, noteToDeleteId } =
+  const { isModalOpen, setIsModalOpen, deleteNote, noteToDeleteId, notes } =
     useContext(WorkspaceContext);
+
+  const [title, setTitle] = useState(null);
+
+  useEffect(() => {
+    if (!isModalOpen) return;
+    const noteToDelete = notes.find((note) => note.id === noteToDeleteId);
+    const title = noteToDelete.title;
+    if (title.trim() === "") {
+      setTitle("this note");
+    } else {
+      setTitle(title);
+    }
+  }, [isModalOpen, noteToDeleteId, notes]);
 
   return (
     <div
@@ -15,9 +28,9 @@ export const DeleteNoteModal = () => {
         onClick={() => setIsModalOpen(false)}
         className="absolute inset-0 bg-base-300/50"
       ></div>
-      <div className="z-100 flex flex-col text-center gap-5 rounded shadow bg-base-100 p-5">
+      <div className="z-50 w-fit max-w-96 wrap-break-word flex flex-col text-center gap-5 rounded shadow bg-base-100 p-5">
         <h3 className="font-semibold text-lg">
-          Are you sure you want to delete this note?
+          Are you sure you want to delete "{title}"?
         </h3>
         <div className="flex justify-center gap-5">
           <button
