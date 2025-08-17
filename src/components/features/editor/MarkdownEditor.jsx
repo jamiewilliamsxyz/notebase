@@ -8,7 +8,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
-  const { noteOpen, notes, deleteNote } = useContext(WorkspaceContext);
+  const { noteOpen, notes } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
   const { isExpanded } = useContext(LayoutContext);
 
