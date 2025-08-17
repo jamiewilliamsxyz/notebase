@@ -11,9 +11,9 @@ export const EditorModeToggle = ({ onToggleEditorMode }) => {
       }`}
       data-tip="Switch editor mode"
     >
-      <label htmlFor="toggle-theme" className="swap swap-rotate">
+      <label className="swap swap-rotate">
         <input
-          id="toggle-theme"
+          aria-label="Toggle Editor Mode"
           type="checkbox"
           onChange={onToggleEditorMode}
         />
