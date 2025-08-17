@@ -5,6 +5,7 @@ import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { LayoutContext } from "../../../context/LayoutContext";
 import { ThemeToggle } from "./ThemeToggle";
+import { SaveButton } from "./SaveButton";
 import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
@@ -69,6 +70,7 @@ export const MarkdownEditor = () => {
         </p>
       )}
 
+      <SaveButton />
       <ThemeToggle />
     </div>
   );
