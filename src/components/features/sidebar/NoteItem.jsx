@@ -65,6 +65,7 @@ export const NoteItem = ({ id, title }) => {
     <li>
       <a
         onClick={() => openNote(id)}
+        href="#"
         className={`${
           isSelected ? "bg-neutral" : ""
         }  text-sm mb-1.5 px-2.5 py-1.5 transition-colors duration-300 ease-in-out dropdown dropdown-right flex flex-row justify-between`}
