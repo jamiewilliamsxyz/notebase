@@ -11,8 +11,12 @@ export const EditorModeToggle = ({ onToggleEditorMode }) => {
       }`}
       data-tip="Switch editor mode"
     >
-      <label className="swap swap-rotate">
-        <input type="checkbox" onChange={onToggleEditorMode} />
+      <label htmlFor="toggle-theme" className="swap swap-rotate">
+        <input
+          id="toggle-theme"
+          type="checkbox"
+          onChange={onToggleEditorMode}
+        />
         <PencilLine className="swap-on w-6 h-6" />
         <BookOpen className="swap-off w-6 h-6" />
       </label>
