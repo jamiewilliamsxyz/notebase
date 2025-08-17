@@ -15,6 +15,7 @@ export const MarkdownEditor = () => {
 
   const [markdownContent, setMarkdownContent] = useState("");
   const [editorMode, setEditorMode] = useState("edit");
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   const handleToggleEditorMode = () => {
     setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
@@ -70,7 +71,17 @@ export const MarkdownEditor = () => {
         </p>
       )}
 
-      <SaveButton />
+      <div
+        className={`toast bottom-2 right-2 z-20 pointer-events-none transition-opacity duration-300 ease-in-out ${
+          isAlertOpen ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="alert alert-success">
+          <span>Note saved successfully</span>
+        </div>
+      </div>
+
+      <SaveButton setIsAlertOpen={setIsAlertOpen} />
       <ThemeToggle />
     </div>
   );

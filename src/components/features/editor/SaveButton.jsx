@@ -1,12 +1,25 @@
 import { save } from "../../../utils/save";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { Save } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { LayoutContext } from "../../../context/LayoutContext";
 
-export const SaveButton = () => {
+export const SaveButton = ({ setIsAlertOpen }) => {
   const { notes } = useContext(WorkspaceContext);
   const { isExpanded } = useContext(LayoutContext);
+
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const handleSave = () => {
+    console.log("save");
+    save("notes", notes);
+    setIsAlertOpen(true);
+    setIsDisabled(true);
+    setTimeout(() => {
+      setIsAlertOpen(false);
+      setIsDisabled(false);
+    }, 4000);
+  };
 
   return (
     <button
@@ -14,7 +27,8 @@ export const SaveButton = () => {
         isExpanded ? "ml-[20rem]" : ""
       }`}
       data-tip="Save Note"
-      onClick={save("notes", notes)}
+      disabled={isDisabled}
+      onClick={handleSave}
     >
       <Save className="text-success w-6 h-6" />
     </button>
