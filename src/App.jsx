@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { Sidebar } from "./components/layout/Sidebar";
+import { DeleteNoteModal } from "./components/features/sidebar/DeleteNoteModal";
 
 export const App = () => {
   const { isExpanded } = useContext(LayoutContext);
@@ -16,6 +17,7 @@ export const App = () => {
           isExpanded ? `ml-[20rem]` : `ml-[0rem]`
         } w-full transition-all duration-300 ease-in-out`}
       >
+        <DeleteNoteModal />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NotFoundPage />} />

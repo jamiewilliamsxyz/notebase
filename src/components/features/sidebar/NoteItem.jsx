@@ -6,7 +6,7 @@ export const NoteItem = ({ id, title }) => {
   const {
     openNote,
     noteOpen,
-    deleteNote,
+    setIsModalOpen,
     setNotes,
     renamingNoteId,
     setRenamingNoteId,
@@ -99,7 +99,7 @@ export const NoteItem = ({ id, title }) => {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                deleteNote(id);
+                setIsModalOpen(true);
               }}
               className="text-base-content hover:text-error transition-colors duration-300 cursor-pointer"
             >
