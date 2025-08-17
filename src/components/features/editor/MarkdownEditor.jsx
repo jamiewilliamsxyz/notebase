@@ -30,7 +30,7 @@ export const MarkdownEditor = () => {
 
   return (
     <div
-      className={`min-h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25
+      className={`min-h-screen
         ${
           theme === "dark" ? "bg-base-300 text-white" : "bg-white text-base-300"
         }
@@ -44,15 +44,17 @@ export const MarkdownEditor = () => {
       <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} />
 
       {editorMode === "edit" ? (
-        <textarea
-          name="editor"
-          value={markdownContent}
-          onChange={(e) => setMarkdownContent(e.target.value)}
-          placeholder="Start typing here..."
-          className="textarea text-base bg-transparent border-0 shadow-none resize-none overflow-hidden w-full min-h-96 leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
-        />
+        <div className="h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
+          <textarea
+            name="editor"
+            value={markdownContent}
+            onChange={(e) => setMarkdownContent(e.target.value)}
+            placeholder="Start typing here..."
+            className="h-[100%] textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
+          />
+        </div>
       ) : editorMode === "view" ? (
-        <div className="html-content leading-relaxed break-all whitespace-pre-wrap w-full">
+        <div className="html-content leading-relaxed break-all whitespace-pre-wrap w-full py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {markdownContent}
           </ReactMarkdown>
