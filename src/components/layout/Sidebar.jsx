@@ -18,7 +18,7 @@ export const Sidebar = () => {
         }`}
       >
         <SidebarToolbar />
-        <div className="flex flex-col gap-3 p-3 flex-1 min-h-0">
+        <div className="flex flex-col flex-1 min-h-0">
           <SearchBar />
           <NoteMenu />
         </div>

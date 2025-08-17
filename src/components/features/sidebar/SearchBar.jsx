@@ -5,7 +5,7 @@ export const SearchBar = () => {
   const { searchQuery, setSearchQuery } = useContext(WorkspaceContext);
 
   return (
-    <label className="input input-md focus-within:outline-none w-full">
+    <label className="m-3 input input-md focus-within:outline-none w-auto">
       <svg
         className="h-[1em] opacity-50"
         xmlns="http://www.w3.org/2000/svg"
