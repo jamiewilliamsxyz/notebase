@@ -12,10 +12,10 @@ export const SidebarToolbar = () => {
 
   return (
     <div className="bg-base-100 flex justify-between p-2">
-      <IconButton onClick={createNote}>
+      <IconButton onClick={createNote} aria-label="Create Note">
         <FilePlus className="w-6 h-6" />
       </IconButton>
-      <IconButton onClick={toggleSidebar}>
+      <IconButton onClick={toggleSidebar} aria-label="Close Sidebar">
         <PanelLeftClose className="w-6 h-6" />
       </IconButton>
     </div>
