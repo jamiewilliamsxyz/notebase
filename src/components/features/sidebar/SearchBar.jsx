@@ -28,6 +28,7 @@ export const SearchBar = () => {
         onChange={(e) => {
           setSearchQuery(e.target.value);
         }}
+        aria-label="Search Note"
         placeholder="Search"
         className="focus:outline-0 focus:border-0"
       />
