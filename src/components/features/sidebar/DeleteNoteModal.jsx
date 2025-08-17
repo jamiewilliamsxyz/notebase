@@ -28,7 +28,7 @@ export const DeleteNoteModal = () => {
         onClick={() => setIsModalOpen(false)}
         className="absolute inset-0 bg-base-300/50"
       ></div>
-      <div className="z-50 w-fit max-w-96 wrap-break-word flex flex-col text-center gap-5 rounded shadow bg-base-100 p-5">
+      <div className="z-50 w-fit max-w-80 sm:max-w-96 wrap-break-word flex flex-col text-center gap-5 rounded shadow bg-base-100 p-5">
         <h3 className="font-semibold text-lg">
           Are you sure you want to delete "{title}"?
         </h3>
