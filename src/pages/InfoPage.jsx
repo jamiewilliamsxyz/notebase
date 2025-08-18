@@ -7,7 +7,7 @@ import { Subtext } from "../components/features/info/Subtext";
 export const InfoPage = () => {
   return (
     <div className="flex flex-col">
-      <div className="bg-base-100 px-10 py-12 flex flex-col gap-5 items-center text-center">
+      <div className="bg-base-100 px-10 py-12 flex flex-col gap-6 items-center text-center">
         <h1 className="font-bold text-5xl">
           👋 Welcome To <span className="text-primary">Notebase</span>
         </h1>
@@ -25,7 +25,7 @@ export const InfoPage = () => {
 
       <hr />
 
-      <div className="bg-base-300 px-10 py-12 flex flex-col gap-5 items-center text-center">
+      <div className="bg-base-300 px-10 py-12 flex flex-col gap-6 items-center text-center">
         <h3 className="font-semibold text-lg">
           📖 Don't know what Markdown is?
         </h3>
@@ -114,27 +114,27 @@ export const InfoPage = () => {
 
       <hr />
 
-      <div>
-        <h3>⚠️ Tips & Limitations</h3>
+      <div className="bg-base-300 px-10 pt-12 pb-28 flex flex-col gap-6 items-center text-center">
+        <h3 className="font-semibold text-lg">⚠️ Tips & Limitations</h3>
 
-        <ul>
+        <ol className="flex flex-col gap-4 max-w-[400px] list-disc text-left">
           <li>
-            📝 Your notes are <strong>saved</strong> automatically in your
+            Your notes are <strong>saved</strong> automatically in your
             browser's local storage
           </li>
           <li>
-            🌍 Notes do <strong>not sync</strong> across devices - they stay on
-            the computer or device where you created them
+            Notes do <strong>not sync</strong> across devices - they stay on the
+            computer or device where you created them
           </li>
           <li>
-            🔒 Clearing your browser storage (or using incognito mode) will
-            <strong>delete your notes</strong>.
+            Clearing your browser storage (or using incognito mode) will{" "}
+            <strong>delete your notes</strong>
           </li>
           <li>
-            📄 Best suited for <strong>lightweight note-taking</strong> and
-            simple documents, not large projects.
+            Best suited for <strong>lightweight note-taking</strong> and simple
+            documents, not large projects
           </li>
-        </ul>
+        </ol>
       </div>
 
       <StartButton />
