@@ -1,14 +1,12 @@
 import { setItem } from "../../../utils/storage";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { Save } from "lucide-react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { LayoutContext } from "../../../context/LayoutContext";
 
-export const SaveButton = ({ setIsAlertOpen }) => {
+export const SaveButton = ({ setIsAlertOpen, isDisabled, setIsDisabled }) => {
   const { notes } = useContext(WorkspaceContext);
   const { isExpanded } = useContext(LayoutContext);
-
-  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSave = () => {
     setItem("notes", notes);

@@ -16,6 +16,7 @@ export const MarkdownEditor = () => {
   const [markdownContent, setMarkdownContent] = useState("");
   const [editorMode, setEditorMode] = useState("edit");
   const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleToggleEditorMode = () => {
     setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
@@ -26,8 +27,12 @@ export const MarkdownEditor = () => {
   }, [noteOpen]);
 
   useEffect(() => {
-    if (notes.length != 0) return;
-    setMarkdownContent("You have no notes!");
+    if (notes.length != 0) {
+      setIsDisabled(false);
+    } else if (notes.length === 0) {
+      setMarkdownContent("You have no notes!");
+      setIsDisabled(true);
+    }
   }, [notes.length]);
 
   return (
@@ -43,20 +48,24 @@ export const MarkdownEditor = () => {
         }
       `}
     >
-      <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} />
+      <EditorModeToggle
+        onToggleEditorMode={handleToggleEditorMode}
+        isDisabled={isDisabled}
+      />
 
       {editorMode === "edit" ? (
         <div className="h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
           <textarea
             name="editor"
             value={markdownContent}
+            disabled={isDisabled}
             onChange={(e) => {
               const newValue = e.target.value;
               setMarkdownContent(newValue);
               updateNoteContent(noteOpen.id, newValue);
             }}
             placeholder="Start typing here..."
-            className="h-[100%] textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
+            className="h-[100%] disabled:bg-transparent disabled:text-error disabled:text-center disabled:font-semibold disabled:text-lg disabled:underline textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
           />
         </div>
       ) : editorMode === "view" ? (
@@ -81,7 +90,11 @@ export const MarkdownEditor = () => {
         </div>
       </div>
 
-      <SaveButton setIsAlertOpen={setIsAlertOpen} />
+      <SaveButton
+        setIsAlertOpen={setIsAlertOpen}
+        isDisabled={isDisabled}
+        setIsDisabled={setIsDisabled}
+      />
       <ThemeToggle />
     </div>
   );
