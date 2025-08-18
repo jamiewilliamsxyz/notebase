@@ -25,9 +25,11 @@ export const InfoPage = () => {
 
       <hr />
 
-      <div>
-        <h3>📖 Don't know what Markdown is?</h3>
-        <h4>👉 Check out these:</h4>
+      <div className="bg-base-300 px-10 py-12 flex flex-col gap-5 items-center text-center">
+        <h3 className="font-semibold text-lg">
+          📖 Don't know what Markdown is?
+        </h3>
+        <h4 className="font-medium">👇 Check out these:</h4>
         <ul>
           <li>
             <Link url="https://www.markdownguide.org" text="Markdown Guide" />
