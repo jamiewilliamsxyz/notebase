@@ -11,7 +11,6 @@ export const SaveButton = ({ setIsAlertOpen }) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSave = () => {
-    console.log("save");
     save("notes", notes);
     setIsAlertOpen(true);
     setIsDisabled(true);
