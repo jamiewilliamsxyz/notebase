@@ -37,7 +37,6 @@ export const WorkspaceContextProvider = ({ children }) => {
     setNoteOpen((prev) =>
       prev.id === id ? { ...prev, content: newContent } : prev
     );
-    console.log(notes);
   };
 
   const createNote = () => {
