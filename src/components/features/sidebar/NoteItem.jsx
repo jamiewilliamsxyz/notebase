@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { PenLine, Trash, Check, X } from "lucide-react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
-import { save } from "../../../utils/save";
+import { setItem } from "../utils/storage";
 
 export const NoteItem = ({ id, title }) => {
   const {
@@ -54,7 +54,7 @@ export const NoteItem = ({ id, title }) => {
       const updatedNotes = prev.map((note) =>
         note.id === id ? { ...note, title: updatedTitle } : note
       );
-      save("notes", updatedNotes);
+      setItem("notes", updatedNotes);
       return updatedNotes;
     });
   };

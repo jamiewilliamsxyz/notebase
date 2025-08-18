@@ -1,14 +1,13 @@
 import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { get } from "../utils/get";
-import { save } from "../utils/save";
+import { setItem, getItem } from "../utils/storage";
 
 export const WorkspaceContext = createContext();
 
 export const WorkspaceContextProvider = ({ children }) => {
   const [notes, setNotes] = useState(() => {
     return (
-      get("notes") || [
+      getItem("notes") || [
         { id: "1", title: "Welcome To Notebase", content: "Short guide" },
       ]
     );
@@ -46,7 +45,7 @@ export const WorkspaceContextProvider = ({ children }) => {
 
     setNotes((prev) => {
       const updatedNotes = [...prev, newNote];
-      save("notes", updatedNotes);
+      setItem("notes", updatedNotes);
       return updatedNotes;
     });
 
@@ -63,7 +62,7 @@ export const WorkspaceContextProvider = ({ children }) => {
   const deleteNote = (id) => {
     const updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
-    save("notes", updatedNotes);
+    setItem("notes", updatedNotes);
   };
 
   return (

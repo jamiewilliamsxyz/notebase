@@ -1,4 +1,4 @@
-import { save } from "../../../utils/save";
+import { setItem } from "../utils/storage";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { Save } from "lucide-react";
 import { useContext, useState } from "react";
@@ -11,7 +11,7 @@ export const SaveButton = ({ setIsAlertOpen }) => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSave = () => {
-    save("notes", notes);
+    setItem("notes", notes);
     setIsAlertOpen(true);
     setIsDisabled(true);
     setTimeout(() => {
