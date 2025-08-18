@@ -6,11 +6,7 @@ export const WorkspaceContext = createContext();
 
 export const WorkspaceContextProvider = ({ children }) => {
   const [notes, setNotes] = useState(() => {
-    return (
-      getItem("notes") || [
-        { id: "1", title: "Welcome To Notebase", content: "Short guide" },
-      ]
-    );
+    return getItem("notes") || [];
   });
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,6 +18,8 @@ export const WorkspaceContextProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [noteOpen, setNoteOpen] = useState({});
+
+  const [displayEditor, setDisplayEditor] = useState(false);
 
   const updateNoteContent = (id, newContent) => {
     setNotes((prevNotes) =>
@@ -58,6 +56,10 @@ export const WorkspaceContextProvider = ({ children }) => {
     const updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
     setItem("notes", updatedNotes);
+    if (id === noteOpen.id) {
+      setNoteOpen({});
+      setDisplayEditor(false);
+    }
   };
 
   return (
@@ -78,6 +80,8 @@ export const WorkspaceContextProvider = ({ children }) => {
         renamingNoteId,
         setRenamingNoteId,
         updateNoteContent,
+        displayEditor,
+        setDisplayEditor,
       }}
     >
       {children}

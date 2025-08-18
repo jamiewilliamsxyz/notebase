@@ -9,34 +9,41 @@ import { SaveButton } from "./SaveButton";
 import { EditorModeToggle } from "./EditorModeToggle";
 
 export const MarkdownEditor = () => {
-  const { noteOpen, notes, updateNoteContent } = useContext(WorkspaceContext);
+  const {
+    noteOpen,
+    notes,
+    updateNoteContent,
+    deleteNote,
+    displayEditor,
+    setDisplayEditor,
+  } = useContext(WorkspaceContext);
   const { theme } = useContext(ThemeContext);
   const { isExpanded } = useContext(LayoutContext);
 
   const [markdownContent, setMarkdownContent] = useState("");
   const [editorMode, setEditorMode] = useState("edit");
   const [isAlertOpen, setIsAlertOpen] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const [displayEditor, setDisplayEditor] = useState(false);
 
   const handleToggleEditorMode = () => {
     setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
   };
 
   useEffect(() => {
+    console.log(noteOpen);
     if (Object.keys(noteOpen).length != 0) {
       setDisplayEditor(true);
+    } else if (Object.keys(noteOpen).length === 0) {
+      setDisplayEditor(false);
     }
 
     setMarkdownContent(noteOpen.content);
-  }, [noteOpen]);
+  }, [noteOpen, deleteNote]);
 
   useEffect(() => {
     if (notes.length != 0) {
-      setIsDisabled(false);
+      setDisplayEditor(true);
     } else if (notes.length === 0) {
-      setMarkdownContent("You have no notes!");
-      setIsDisabled(true);
+      setDisplayEditor(false);
     }
   }, [notes.length]);
 
@@ -55,24 +62,20 @@ export const MarkdownEditor = () => {
     >
       {displayEditor ? (
         <>
-          <EditorModeToggle
-            onToggleEditorMode={handleToggleEditorMode}
-            isDisabled={isDisabled}
-          />
+          <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} />
 
           {editorMode === "edit" ? (
             <div className="h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
               <textarea
                 name="editor"
                 value={markdownContent}
-                disabled={isDisabled}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   setMarkdownContent(newValue);
                   updateNoteContent(noteOpen.id, newValue);
                 }}
                 placeholder="Start typing here..."
-                className="h-[100%] disabled:bg-transparent disabled:text-error disabled:text-center disabled:font-semibold disabled:text-lg disabled:underline textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
+                className="h-[100%] textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
               />
             </div>
           ) : editorMode === "view" ? (
@@ -82,11 +85,7 @@ export const MarkdownEditor = () => {
               </ReactMarkdown>
             </div>
           ) : (
-            <div className="flex items-center justify-center">
-              <p className="text-error text-lg font-semibold">
-                Invalid editor mode
-              </p>
-            </div>
+            <div className="h-screen"></div>
           )}
 
           <div
@@ -99,17 +98,11 @@ export const MarkdownEditor = () => {
             </div>
           </div>
 
-          <SaveButton
-            setIsAlertOpen={setIsAlertOpen}
-            isDisabled={isDisabled}
-            setIsDisabled={setIsDisabled}
-          />
+          <SaveButton setIsAlertOpen={setIsAlertOpen} />
           <ThemeToggle />
         </>
       ) : (
-        <div className="flex items-center justify-center h-screen">
-          <p className="text-info text-lg font-medium">Please select a note</p>
-        </div>
+        <div className="h-screen"></div>
       )}
     </div>
   );

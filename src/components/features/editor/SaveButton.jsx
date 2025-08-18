@@ -1,22 +1,22 @@
 import { setItem } from "../../../utils/storage";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { Save } from "lucide-react";
-import { useContext, useRef } from "react";
+import { useContext, useState } from "react";
 import { LayoutContext } from "../../../context/LayoutContext";
 
-export const SaveButton = ({ setIsAlertOpen, isDisabled, setIsDisabled }) => {
+export const SaveButton = ({ setIsAlertOpen }) => {
   const { notes } = useContext(WorkspaceContext);
   const { isExpanded } = useContext(LayoutContext);
 
-  const saveButtonRef = useRef(null);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSave = () => {
     setItem("notes", notes);
     setIsAlertOpen(true);
-    saveButtonRef.current.disabled = true;
+    setIsDisabled(true);
     setTimeout(() => {
       setIsAlertOpen(false);
-      saveButtonRef.current.disabled = false;
+      setIsDisabled(false);
     }, 4000);
   };
 
@@ -25,7 +25,6 @@ export const SaveButton = ({ setIsAlertOpen, isDisabled, setIsDisabled }) => {
       className={`tooltip tooltip-right cursor-pointer fixed bottom-1 left-2 w-fit h-fit p-2 transition-all duration-300 ease-in-out ${
         isExpanded ? "ml-[20rem]" : ""
       }`}
-      ref={saveButtonRef}
       data-tip="Save Note"
       disabled={isDisabled}
       onClick={handleSave}
