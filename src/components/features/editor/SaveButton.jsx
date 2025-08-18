@@ -1,4 +1,4 @@
-import { setItem } from "../utils/storage";
+import { setItem } from "../../../utils/storage";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { Save } from "lucide-react";
 import { useContext, useState } from "react";

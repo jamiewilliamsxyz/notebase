@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { PenLine, Trash, Check, X } from "lucide-react";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
-import { setItem } from "../utils/storage";
+import { setItem } from "../../../utils/storage";
 
 export const NoteItem = ({ id, title }) => {
   const {
