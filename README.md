@@ -13,6 +13,12 @@ Notebase - A Fast & minimal Markdown note editor on the web with local storage a
 - Local storage saving
 - Dark/light modes for the editor
 
+## Planned Features
+
+- Pin notes
+- Auto-saving
+- Drag and drop note menu re-ordering
+
 ## Screenshots
 
 ![image](./src/assets/images/notebase-screenshot-1.png)
