@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { LayoutContext } from "./context/LayoutContext";
 import { Routes, Route } from "react-router";
 import { HomePage } from "./pages/HomePage";
+import { InfoPage } from "./pages/InfoPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { Sidebar } from "./components/layout/Sidebar";
 import { DeleteNoteModal } from "./components/features/sidebar/DeleteNoteModal";
@@ -20,6 +21,7 @@ export const App = () => {
         <DeleteNoteModal />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/info" element={<InfoPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
