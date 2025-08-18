@@ -6,11 +6,13 @@ import { Subtext } from "../components/features/info/Subtext";
 
 export const InfoPage = () => {
   return (
-    <div className="flex flex-col w-full min-h-full bg-base-300">
-      <div>
-        <h1>👋 Welcome To Notebase</h1>
+    <div className="flex flex-col">
+      <div className="bg-base-100 px-10 py-12 flex flex-col gap-5 items-center text-center">
+        <h1 className="font-bold text-5xl">
+          👋 Welcome To <span className="text-primary">Notebase</span>
+        </h1>
 
-        <h2>
+        <h2 className="max-w-96">
           Notebase is a fast & minimal <strong>Markdown note editor</strong> on
           the web with local storage and simple note management
         </h2>
