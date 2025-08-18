@@ -4,8 +4,6 @@ Notebase - A Fast & minimal Markdown note editor on the web with local storage a
 
 ![image](./src/assets/images/logo-light-bg.png)
 
----
-
 ## Features
 
 - Markdown note taking
@@ -15,15 +13,13 @@ Notebase - A Fast & minimal Markdown note editor on the web with local storage a
 - Local storage saving
 - Dark/light modes for the editor
 
----
-
 ## Screenshots
 
 ![image](./src/assets/images/notebase-screenshot-1.png)
-![image](./src/assets/images/notebase-screenshot-2.png)
-![image](./src/assets/images/notebase-screenshot-3.png)
 
----
+![image](./src/assets/images/notebase-screenshot-2.png)
+
+![image](./src/assets/images/notebase-screenshot-3.png)
 
 ## Installation
 
