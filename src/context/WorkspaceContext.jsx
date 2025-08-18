@@ -21,11 +21,7 @@ export const WorkspaceContextProvider = ({ children }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [noteOpen, setNoteOpen] = useState({
-    id: "1",
-    title: "Welcome To Notebase",
-    content: "Short guide",
-  });
+  const [noteOpen, setNoteOpen] = useState({});
 
   const updateNoteContent = (id, newContent) => {
     setNotes((prevNotes) =>
