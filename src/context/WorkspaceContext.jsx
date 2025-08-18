@@ -7,10 +7,11 @@ export const WorkspaceContext = createContext();
 
 export const WorkspaceContextProvider = ({ children }) => {
   const [notes, setNotes] = useState(() => {
-    const stored = get("notes");
-    return stored
-      ? JSON.parse(stored)
-      : [{ id: "1", title: "Welcome To Notebase", content: "Short guide" }];
+    return (
+      get("notes") || [
+        { id: "1", title: "Welcome To Notebase", content: "Short guide" },
+      ]
+    );
   });
 
   const [searchQuery, setSearchQuery] = useState("");
