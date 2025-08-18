@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { get } from "../utils/get";
 import { save } from "../utils/save";
