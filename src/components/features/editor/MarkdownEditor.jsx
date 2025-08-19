@@ -29,7 +29,6 @@ export const MarkdownEditor = () => {
   };
 
   useEffect(() => {
-    console.log(noteOpen);
     if (Object.keys(noteOpen).length != 0) {
       setDisplayEditor(true);
     } else if (Object.keys(noteOpen).length === 0) {
