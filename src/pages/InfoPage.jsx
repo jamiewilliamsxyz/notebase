@@ -106,7 +106,7 @@ export const InfoPage = () => {
           <li className="flex flex-col items-center gap-2">
             <h5>
               In the editor you can now write your markdown,<br></br>use the
-              book icon to change the editor mode to view:
+              book icon to change the editor mode to view
             </h5>
             <Screenshot
               image={screenshot5}
