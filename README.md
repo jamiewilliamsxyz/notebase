@@ -21,11 +21,17 @@ Notebase - A Fast & minimal Markdown note editor on the web with local storage a
 
 ## Screenshots
 
-![image](./src/assets/images/notebase-screenshot-1.png)
+![image](./src/assets/images/readme/screenshot0.png)
 
-![image](./src/assets/images/notebase-screenshot-2.png)
+![image](./src/assets/images/readme/screenshot1.png)
 
-![image](./src/assets/images/notebase-screenshot-3.png)
+![image](./src/assets/images/readme/screenshot2.png)
+
+![image](./src/assets/images/readme/screenshot3.png)
+
+![image](./src/assets/images/readme/screenshot4.png)
+
+![image](./src/assets/images/readme/screenshot5.png)
 
 ## Installation
 
