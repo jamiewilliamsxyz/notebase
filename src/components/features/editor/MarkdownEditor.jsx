@@ -65,7 +65,7 @@ export const MarkdownEditor = () => {
           />
 
           {editorMode === "edit" ? (
-            <div className="h-full py-14 px-5 md:py-15 md:px-15 lg:py-20 lg:px-25">
+            <div className="min-h-screen py-14 px-5 md:py-15 md:px-15 lg:py-20 lg:px-25">
               <textarea
                 name="editor"
                 value={markdownContent}
@@ -75,7 +75,7 @@ export const MarkdownEditor = () => {
                   updateNoteContent(noteOpen.id, newValue);
                 }}
                 placeholder="Start typing here..."
-                className="textarea field-sizing-content text-base resize-none leading-relaxed break-all w-full bg-transparent border-0 shadow-none overflow-hidden focus:bg-transparent focus:shadow-none focus:outline-none p-0"
+                className="min-h-[calc(100vh_-_10rem)] bg-transparent textarea field-sizing-content text-base resize-none leading-relaxed break-all w-full border-0 shadow-none overflow-hidden focus:bg-transparent focus:shadow-none focus:outline-none p-0"
               />
             </div>
           ) : editorMode === "view" ? (
