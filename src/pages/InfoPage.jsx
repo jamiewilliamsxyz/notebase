@@ -5,6 +5,15 @@ import { ExternalLink } from "../components/ui/ExternalLink";
 import { GuideListItem } from "../components/features/info/GuideListItem";
 import { Screenshot } from "../components/features/info/Screenshot";
 import { Subtext } from "../components/features/info/Subtext";
+import screenshot0 from "../assets/images/info/screenshot0.png";
+import screenshot1 from "../assets/images/info/screenshot1.png";
+import screenshot2 from "../assets/images/info/screenshot2.png";
+import screenshot3 from "../assets/images/info/screenshot3.png";
+import screenshot4 from "../assets/images/info/screenshot4.png";
+import screenshot5 from "../assets/images/info/screenshot5.png";
+import screenshot6 from "../assets/images/info/screenshot6.png";
+import screenshot7 from "../assets/images/info/screenshot7.png";
+import screenshot8 from "../assets/images/info/screenshot8.png";
 
 export const InfoPage = () => {
   const { setIsHidden, isHidden, setIsExpanded } = useContext(LayoutContext);
@@ -66,22 +75,22 @@ export const InfoPage = () => {
         <ol className="flex flex-col gap-4 self-center justify-start">
           <GuideListItem
             heading="Use the sidebar topbar to create new notes & hide the sidebar"
-            image="{image}"
+            image={screenshot0}
             alt="Sidebar topbar"
           />
           <GuideListItem
             heading="Once created a note, it will appear in the sidebar"
-            image="{image}"
+            image={screenshot1}
             alt="Note in sidebar"
           />
           <GuideListItem
             heading="You can rename/delete your notes"
-            image="{image}"
+            image={screenshot2}
             alt="Note item rename/delete"
           />
           <GuideListItem
             heading="Use the search input to find your notes easily"
-            image="{image}"
+            image={screenshot3}
             alt="Search input"
           />
         </ol>
@@ -90,7 +99,7 @@ export const InfoPage = () => {
         <ol className="flex flex-col gap-4 self-center text-center">
           <GuideListItem
             heading="Once you click on a note in the sidebar, the editor will open"
-            image="{image}"
+            image={screenshot4}
             alt="Markdown editor"
           />
 
@@ -100,12 +109,12 @@ export const InfoPage = () => {
               book icon to change the editor mode to view:
             </h5>
             <Screenshot
-              image="{image}"
+              image={screenshot5}
               alt="Markdown editor with markdown in edit mode"
             />
             <Subtext text="^ Before pressing on the book icon" />
             <Screenshot
-              image="{image}"
+              image={screenshot6}
               alt="Markdown editor with HTML rendered in view mode"
             />
             <Subtext text="^ After pressing on the book icon" />
@@ -113,12 +122,12 @@ export const InfoPage = () => {
 
           <GuideListItem
             heading="Remember to save your note by pressing the floppy disk icon"
-            image="{image}"
+            image={screenshot7}
             alt="Save button"
           />
           <GuideListItem
             heading="You can also change the editor theme with the theme toggle:"
-            image="{image}"
+            image={screenshot8}
             alt="Theme toggle"
           />
         </ol>
