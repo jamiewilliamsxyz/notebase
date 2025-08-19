@@ -4,7 +4,7 @@ export const StartButton = () => {
   return (
     <Link
       to="/"
-      className="btn btn-primary fixed bottom-5 left-1/2 -translate-x-1/2"
+      className="btn btn-primary max-w-44 fixed bottom-5 self-center"
     >
       Take me to the editor
     </Link>
