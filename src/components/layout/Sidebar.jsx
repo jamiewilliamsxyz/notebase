@@ -5,6 +5,7 @@ import { SidebarToolbar } from "../features/sidebar/SidebarToolbar";
 import { SearchBar } from "../features/sidebar/SearchBar";
 import { NoteMenu } from "../features/sidebar/NoteMenu";
 import { PanelLeftOpen } from "lucide-react";
+import { InfoLink } from "../features/sidebar/InfoLink";
 
 export const Sidebar = () => {
   const { isExpanded, toggleSidebar } = useContext(LayoutContext);
@@ -22,7 +23,9 @@ export const Sidebar = () => {
           <SearchBar />
           <NoteMenu />
         </div>
+        <InfoLink />
       </div>
+
       <div
         className={`fixed p-2 flex flex-col transition-opacity duration-300 ease-in-out ${
           isExpanded ? "opacity-0 pointer-events-none" : "opacity-100"
