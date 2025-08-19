@@ -1,3 +1,5 @@
+import { useContext, useEffect } from "react";
+import { LayoutContext } from "../context/LayoutContext";
 import { StartButton } from "../components/features/info/StartButton";
 import { ExternalLink } from "../components/ui/ExternalLink";
 import { GuideListItem } from "../components/features/info/GuideListItem";
@@ -5,6 +7,14 @@ import { Screenshot } from "../components/features/info/Screenshot";
 import { Subtext } from "../components/features/info/Subtext";
 
 export const InfoPage = () => {
+  const { setIsHidden, isHidden, setIsExpanded } = useContext(LayoutContext);
+
+  useEffect(() => {
+    if (isHidden) return;
+    setIsHidden(true);
+    setIsExpanded(false);
+  }, []);
+
   return (
     <div className="flex flex-col">
       <div className="bg-base-100 px-10 py-12 flex flex-col gap-6 items-center text-center">

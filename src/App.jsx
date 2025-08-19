@@ -8,15 +8,17 @@ import { Sidebar } from "./components/layout/Sidebar";
 import { DeleteNoteModal } from "./components/features/sidebar/DeleteNoteModal";
 
 export const App = () => {
-  const { isExpanded } = useContext(LayoutContext);
+  const { isExpanded, isHidden } = useContext(LayoutContext);
 
   return (
     <div className="flex bg-base-300">
-      <Sidebar />
+      {!isHidden && <Sidebar />}
+
       <main
-        className={`${
-          isExpanded ? `sm:ml-[20rem] ml-[0rem]` : `ml-[0rem]`
-        } w-full transition-all duration-300 ease-in-out`}
+        className={`
+          ${isExpanded ? "sm:ml-[20rem] ml-[0rem]" : "ml-[0rem]"}
+        
+          w-full transition-all duration-300 ease-in-out`}
       >
         <DeleteNoteModal />
         <Routes>

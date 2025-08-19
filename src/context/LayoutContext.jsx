@@ -10,12 +10,22 @@ export const LayoutContextProvider = ({ children }) => {
     return true;
   });
 
+  const [isHidden, setIsHidden] = useState(false);
+
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <LayoutContext.Provider value={{ isExpanded, toggleSidebar }}>
+    <LayoutContext.Provider
+      value={{
+        isExpanded,
+        toggleSidebar,
+        setIsExpanded,
+        isHidden,
+        setIsHidden,
+      }}
+    >
       {children}
     </LayoutContext.Provider>
   );
