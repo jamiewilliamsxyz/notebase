@@ -65,7 +65,7 @@ export const MarkdownEditor = () => {
           />
 
           {editorMode === "edit" ? (
-            <div className="h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
+            <div className="h-full py-14 px-5 md:py-15 md:px-15 lg:py-20 lg:px-25">
               <textarea
                 name="editor"
                 value={markdownContent}
@@ -75,11 +75,11 @@ export const MarkdownEditor = () => {
                   updateNoteContent(noteOpen.id, newValue);
                 }}
                 placeholder="Start typing here..."
-                className="h-[100%] textarea bg-transparent text-base border-0 shadow-none resize-none overflow-hidden w-full  leading-relaxed focus:bg-transparent focus:shadow-none focus:outline-none p-0 field-sizing-content break-all"
+                className="textarea field-sizing-content text-base resize-none leading-relaxed break-all w-full bg-transparent border-0 shadow-none overflow-hidden focus:bg-transparent focus:shadow-none focus:outline-none p-0"
               />
             </div>
           ) : editorMode === "view" ? (
-            <div className="html-content leading-relaxed break-all whitespace-pre-wrap w-full py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
+            <div className="html-content leading-relaxed break-all whitespace-pre-wrap w-full py-14 px-5 md:py-15 md:px-15 lg:py-20 lg:px-25">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {markdownContent}
               </ReactMarkdown>
