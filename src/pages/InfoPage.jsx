@@ -11,7 +11,6 @@ export const InfoPage = () => {
         <h1 className="font-bold text-5xl">
           👋 Welcome To <span className="text-primary">Notebase</span>
         </h1>
-
         <h2 className="max-w-96">
           Notebase is a fast & minimal <strong>Markdown note editor</strong> on
           the web with local storage and simple note management
