@@ -35,5 +35,5 @@ You can clone the repo and run it locally or visit the website link
 git clone https://github.com/jamiewilliamsxyz/notebase.git
 cd notebase
 npm install
-npm start
+npm run dev
 ```
