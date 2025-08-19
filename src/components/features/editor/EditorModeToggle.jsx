@@ -1,14 +1,9 @@
-import { useContext } from "react";
 import { PencilLine, BookOpen } from "lucide-react";
-import { ThemeContext } from "../../../context/ThemeContext";
 
 export const EditorModeToggle = ({ onToggleEditorMode }) => {
-  const { theme } = useContext(ThemeContext);
   return (
-    <div
-      className={`tooltip tooltip-left fixed top-1 right-2 w-fit h-fit p-2 ${
-        theme === "dark" ? "" : "text-base-300"
-      }`}
+    <li
+      className="tooltip tooltip-left sm:tooltip-bottom flex items-center"
       data-tip="Switch editor mode"
     >
       <label className="swap swap-rotate">
@@ -17,9 +12,9 @@ export const EditorModeToggle = ({ onToggleEditorMode }) => {
           type="checkbox"
           onChange={onToggleEditorMode}
         />
-        <PencilLine className="swap-on w-6 h-6" />
-        <BookOpen className="swap-off w-6 h-6" />
+        <PencilLine className="swap-on w-5.5 h-5.5 text-base-content" />
+        <BookOpen className="swap-off w-5.5 h-5.5 text-base-content" />
       </label>
-    </div>
+    </li>
   );
 };

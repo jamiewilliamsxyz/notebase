@@ -2,12 +2,9 @@ import { setItem } from "../../../utils/storage";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { Save } from "lucide-react";
 import { useContext, useState } from "react";
-import { LayoutContext } from "../../../context/LayoutContext";
 
 export const SaveButton = ({ setIsAlertOpen }) => {
   const { notes } = useContext(WorkspaceContext);
-  const { isExpanded } = useContext(LayoutContext);
-
   const [isDisabled, setIsDisabled] = useState(false);
 
   const handleSave = () => {
@@ -21,16 +18,18 @@ export const SaveButton = ({ setIsAlertOpen }) => {
   };
 
   return (
-    <button
-      className={`tooltip tooltip-right cursor-pointer fixed bottom-1 left-2 w-fit h-fit p-2 transition-all duration-300 ease-in-out ${
-        isExpanded ? "ml-[20rem]" : ""
-      }`}
+    <li
+      className="tooltip tooltip-left sm:tooltip-bottom flex items-center"
       data-tip="Save note"
-      aria-label="Save Note"
-      disabled={isDisabled}
-      onClick={handleSave}
     >
-      <Save className="text-success w-6 h-6" />
-    </button>
+      <button
+        className="cursor-pointer transition-all duration-300 ease-in-out"
+        aria-label="Save Note"
+        disabled={isDisabled}
+        onClick={handleSave}
+      >
+        <Save className="text-success w-5.5 h-5.5" />
+      </button>
+    </li>
   );
 };

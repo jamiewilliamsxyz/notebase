@@ -16,7 +16,10 @@ export const ThemeToggle = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-1 right-2 w-fit h-fit p-2">
+    <li
+      className="tooltip tooltip-left sm:tooltip-bottom flex items-center hover:bg-"
+      data-tip="Toggle theme"
+    >
       <label className="swap swap-rotate">
         <input
           aria-label="Toggle Theme"
@@ -26,14 +29,14 @@ export const ThemeToggle = () => {
         <Moon
           className={`${
             initialTheme === "dark" ? "swap-on" : "swap-off"
-          } text-base-300  w-6 h-6"`}
+          } text-base-content  w-5.5 h-5.5"`}
         />
         <Sun
           className={`${
             initialTheme === "light" ? "swap-on" : "swap-off"
-          } text-white  w-6 h-6 `}
+          } text-base-content  w-5.5 h-5.5 `}
         />
       </label>
-    </div>
+    </li>
   );
 };

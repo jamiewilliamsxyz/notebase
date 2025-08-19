@@ -7,6 +7,7 @@ import { LayoutContext } from "../../../context/LayoutContext";
 import { ThemeToggle } from "./ThemeToggle";
 import { SaveButton } from "./SaveButton";
 import { EditorModeToggle } from "./EditorModeToggle";
+import { EditorToolbar } from "./EditorToolbar";
 
 export const MarkdownEditor = () => {
   const {
@@ -61,7 +62,8 @@ export const MarkdownEditor = () => {
     >
       {displayEditor ? (
         <>
-          <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} />
+          <EditorToolbar />
+          {/* <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} /> */}
 
           {editorMode === "edit" ? (
             <div className="h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
@@ -97,8 +99,8 @@ export const MarkdownEditor = () => {
             </div>
           </div>
 
-          <SaveButton setIsAlertOpen={setIsAlertOpen} />
-          <ThemeToggle />
+          {/* <SaveButton setIsAlertOpen={setIsAlertOpen} /> */}
+          {/* <ThemeToggle /> */}
         </>
       ) : (
         <div className="h-screen"></div>
