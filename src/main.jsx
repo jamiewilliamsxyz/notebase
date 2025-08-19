@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
+import { Analytics } from "@vercel/analytics/react";
 import "./styles/index.css";
 import { LayoutContextProvider } from "./context/LayoutContext";
 import { ThemeContextProvider } from "./context/ThemeContext.jsx";
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")).render(
         <ThemeContextProvider>
           <WorkspaceContextProvider>
             <App />
+            <Analytics />
           </WorkspaceContextProvider>
         </ThemeContextProvider>
       </LayoutContextProvider>
