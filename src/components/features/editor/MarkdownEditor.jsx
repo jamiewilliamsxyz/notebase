@@ -4,9 +4,6 @@ import remarkGfm from "remark-gfm";
 import { WorkspaceContext } from "../../../context/WorkspaceContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { LayoutContext } from "../../../context/LayoutContext";
-import { ThemeToggle } from "./ThemeToggle";
-import { SaveButton } from "./SaveButton";
-import { EditorModeToggle } from "./EditorModeToggle";
 import { EditorToolbar } from "./EditorToolbar";
 
 export const MarkdownEditor = () => {
@@ -24,10 +21,6 @@ export const MarkdownEditor = () => {
   const [markdownContent, setMarkdownContent] = useState("");
   const [editorMode, setEditorMode] = useState("edit");
   const [isAlertOpen, setIsAlertOpen] = useState(false);
-
-  const handleToggleEditorMode = () => {
-    setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
-  };
 
   useEffect(() => {
     if (Object.keys(noteOpen).length != 0) {
@@ -47,6 +40,10 @@ export const MarkdownEditor = () => {
     }
   }, [notes.length]);
 
+  const toggleEditorMode = () => {
+    setEditorMode((prev) => (prev === "edit" ? "view" : "edit"));
+  };
+
   return (
     <div
       className={`min-h-screen
@@ -62,8 +59,10 @@ export const MarkdownEditor = () => {
     >
       {displayEditor ? (
         <>
-          <EditorToolbar />
-          {/* <EditorModeToggle onToggleEditorMode={handleToggleEditorMode} /> */}
+          <EditorToolbar
+            toggleEditorMode={toggleEditorMode}
+            setIsAlertOpen={setIsAlertOpen}
+          />
 
           {editorMode === "edit" ? (
             <div className="h-screen py-12 px-4 md:py-15 md:px-20 lg:py-20 lg:px-25">
@@ -98,9 +97,6 @@ export const MarkdownEditor = () => {
               <span>Note saved successfully</span>
             </div>
           </div>
-
-          {/* <SaveButton setIsAlertOpen={setIsAlertOpen} /> */}
-          {/* <ThemeToggle /> */}
         </>
       ) : (
         <div className="h-screen"></div>
