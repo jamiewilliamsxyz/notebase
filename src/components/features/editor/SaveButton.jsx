@@ -25,7 +25,8 @@ export const SaveButton = ({ setIsAlertOpen }) => {
       className={`tooltip tooltip-right cursor-pointer fixed bottom-1 left-2 w-fit h-fit p-2 transition-all duration-300 ease-in-out ${
         isExpanded ? "ml-[20rem]" : ""
       }`}
-      data-tip="Save Note"
+      data-tip="Save note"
+      aria-label="Save Note"
       disabled={isDisabled}
       onClick={handleSave}
     >
