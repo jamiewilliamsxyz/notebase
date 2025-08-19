@@ -1,5 +1,5 @@
 import { StartButton } from "../components/features/info/StartButton";
-import { Link } from "../components/ui/Link";
+import { ExternalLink } from "../components/ui/ExternalLink";
 import { GuideListItem } from "../components/features/info/GuideListItem";
 import { Screenshot } from "../components/features/info/Screenshot";
 import { Subtext } from "../components/features/info/Subtext";
@@ -17,7 +17,7 @@ export const InfoPage = () => {
           the web with local storage and simple note management
         </h2>
 
-        <Link
+        <ExternalLink
           url="https://github.com/jamiewilliamsxyz/notebase"
           text="Notebase GitHub Repo 💻"
         />
@@ -32,10 +32,13 @@ export const InfoPage = () => {
         <h4 className="font-medium">👇 Check out these:</h4>
         <ul>
           <li>
-            <Link url="https://www.markdownguide.org" text="Markdown Guide" />
+            <ExternalLink
+              url="https://www.markdownguide.org"
+              text="Markdown Guide"
+            />
           </li>
           <li>
-            <Link
+            <ExternalLink
               url="https://www.markdownguide.org/basic-syntax"
               text="Markdown Syntax"
             />

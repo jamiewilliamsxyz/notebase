@@ -1,4 +1,4 @@
-export const Link = ({ url, text }) => {
+export const ExternalLink = ({ url, text }) => {
   return (
     <a
       href={url}
