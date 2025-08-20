@@ -3,9 +3,7 @@ export const Screenshot = ({ image, alt }) => {
     <img
       src={image}
       alt={alt}
-      width="45%"
-      height="45%"
-      className="rounded shadow"
+      className="rounded shadow w-[80%] h-auto md:w-[60%] min-w-80"
     />
   );
 };
