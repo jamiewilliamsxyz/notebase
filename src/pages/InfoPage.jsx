@@ -25,7 +25,7 @@ export const InfoPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col max-w-screen">
       <div className="bg-base-100 px-10 py-12 flex flex-col gap-6 items-center text-center">
         <h1 className="font-bold text-5xl">
           👋 Welcome To <span className="text-primary">Notebase</span>
